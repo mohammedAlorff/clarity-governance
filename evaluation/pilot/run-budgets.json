@@ -1,0 +1,8 @@
+{
+  "max_calls": 100,
+  "max_steps": 8,
+  "max_seconds": 120,
+  "max_tokens": 64000,
+  "max_output_tokens": 4000,
+  "max_retries": 1
+}

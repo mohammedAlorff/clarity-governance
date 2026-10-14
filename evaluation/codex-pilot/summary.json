@@ -1,0 +1,424 @@
+{
+  "study_type": "exploratory development Codex proxy",
+  "formal_final_eligible": false,
+  "reference_reviewed": false,
+  "model": "gpt-5.6-sol",
+  "source_hash": "7f1dc4743c58b1cef99ae318cf3d6d13e4f564d3ab90eb72870d8252c89ab415",
+  "schema_projection_hash": "8f8bcd30d69ffd710c6fc2d6163cb58cfd9a2766e4eba79c5d78a8015e64c741",
+  "reference_hash": "85a38305e0e4ecf80cf1f18d02def3f7c92350fd16d8a350500ec848d4f22634",
+  "generated_at": "2026-10-14T05:27:10.616349+00:00",
+  "run_order": [
+    "b_contract_01",
+    "c_contract_01",
+    "b_contract_02",
+    "c_contract_02",
+    "b_contract_03",
+    "c_contract_03"
+  ],
+  "calibration_excluded": [
+    "b_proxy_01",
+    "c_proxy_01",
+    "b_proxy_02",
+    "c_proxy_02",
+    "b_proxy_03",
+    "c_proxy_03"
+  ],
+  "runs": [
+    {
+      "run_id": "b_contract_01",
+      "approach": "B",
+      "source_actions": 13,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 0,
+      "proposal_count": 16,
+      "description_count": 8,
+      "clarification_count": 8,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    },
+    {
+      "run_id": "c_contract_01",
+      "approach": "C",
+      "source_actions": 20,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 1,
+      "proposal_count": 17,
+      "description_count": 7,
+      "clarification_count": 9,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    },
+    {
+      "run_id": "b_contract_02",
+      "approach": "B",
+      "source_actions": 13,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 0,
+      "proposal_count": 16,
+      "description_count": 8,
+      "clarification_count": 8,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    },
+    {
+      "run_id": "c_contract_02",
+      "approach": "C",
+      "source_actions": 20,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 3,
+      "proposal_count": 15,
+      "description_count": 2,
+      "clarification_count": 7,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    },
+    {
+      "run_id": "b_contract_03",
+      "approach": "B",
+      "source_actions": 13,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 0,
+      "proposal_count": 15,
+      "description_count": 7,
+      "clarification_count": 7,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    },
+    {
+      "run_id": "c_contract_03",
+      "approach": "C",
+      "source_actions": 20,
+      "failed_source_actions": 0,
+      "positive_metric_probes": 2,
+      "proposal_count": 18,
+      "description_count": 4,
+      "clarification_count": 10,
+      "invalid_proposals": 0,
+      "executed_rules": 8,
+      "exact_reference_rules": 0,
+      "scoring_status": "awaiting_human_review",
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null,
+        "predicted_count": 0,
+        "reference_count": 8
+      }
+    }
+  ],
+  "by_approach": {
+    "B": {
+      "runs": 3,
+      "source_actions": {
+        "observed": 3,
+        "mean": 13,
+        "sample_sd": 0.0
+      },
+      "failed_source_actions": 0,
+      "positive_metric_probes": 0,
+      "proposal_count": {
+        "observed": 3,
+        "mean": 15.666666666666666,
+        "sample_sd": 0.5773502691896257
+      },
+      "invalid_proposals": 0,
+      "exact_reference_rules": 0,
+      "tp": {
+        "observed": 3,
+        "mean": 0,
+        "sample_sd": 0.0
+      },
+      "fp": {
+        "observed": 3,
+        "mean": 0,
+        "sample_sd": 0.0
+      },
+      "fn": {
+        "observed": 3,
+        "mean": 8,
+        "sample_sd": 0.0
+      },
+      "precision": {
+        "observed": 0,
+        "mean": null,
+        "sample_sd": null
+      },
+      "recall": {
+        "observed": 3,
+        "mean": 0.0,
+        "sample_sd": 0.0
+      },
+      "f1": {
+        "observed": 0,
+        "mean": null,
+        "sample_sd": null
+      }
+    },
+    "C": {
+      "runs": 3,
+      "source_actions": {
+        "observed": 3,
+        "mean": 20,
+        "sample_sd": 0.0
+      },
+      "failed_source_actions": 0,
+      "positive_metric_probes": 6,
+      "proposal_count": {
+        "observed": 3,
+        "mean": 16.666666666666668,
+        "sample_sd": 1.5275252316519468
+      },
+      "invalid_proposals": 0,
+      "exact_reference_rules": 0,
+      "tp": {
+        "observed": 3,
+        "mean": 0,
+        "sample_sd": 0.0
+      },
+      "fp": {
+        "observed": 3,
+        "mean": 0,
+        "sample_sd": 0.0
+      },
+      "fn": {
+        "observed": 3,
+        "mean": 8,
+        "sample_sd": 0.0
+      },
+      "precision": {
+        "observed": 0,
+        "mean": null,
+        "sample_sd": null
+      },
+      "recall": {
+        "observed": 3,
+        "mean": 0.0,
+        "sample_sd": 0.0
+      },
+      "f1": {
+        "observed": 0,
+        "mean": null,
+        "sample_sd": null
+      }
+    }
+  },
+  "unmeasured": [
+    "independent held-out performance",
+    "human proposal quality",
+    "human review time",
+    "uncached status",
+    "token usage",
+    "cost",
+    "comparable model-only latency",
+    "adaptive decision-round compliance"
+  ],
+  "artifacts": [
+    {
+      "run_id": "b_contract_01",
+      "kind": "evidence",
+      "path": "artifacts/b_contract_01/evidence.json",
+      "sha256": "44f21555bff41bb7dcc516813b4e9b3da36482fefecbc8cc04178ad7463022b4"
+    },
+    {
+      "run_id": "b_contract_01",
+      "kind": "actions",
+      "path": "artifacts/b_contract_01/actions.jsonl",
+      "sha256": "56ac8a1bb7c4422e8751f7c3cffc370b115402a81c70a3525d8bd066887c7295"
+    },
+    {
+      "run_id": "b_contract_01",
+      "kind": "original_proposals",
+      "path": "artifacts/b_contract_01/original_proposals.json",
+      "sha256": "a7521d443bd8034a26350d07bd5c97798c7d356941a1df559895b756f61b495e"
+    },
+    {
+      "run_id": "b_contract_01",
+      "kind": "technical_score",
+      "path": "artifacts/b_contract_01/technical_score.json",
+      "sha256": "64586041b02425e0dcd51213a3dba53ae347430edf14eb867658eda3b5704721"
+    },
+    {
+      "run_id": "c_contract_01",
+      "kind": "evidence",
+      "path": "artifacts/c_contract_01/evidence.json",
+      "sha256": "7a98aab33202feb4c1fe065c1b0a248c63a8ade6ff73b5095c0c3e0f8301aadd"
+    },
+    {
+      "run_id": "c_contract_01",
+      "kind": "actions",
+      "path": "artifacts/c_contract_01/actions.jsonl",
+      "sha256": "c98a1de9520c80112cb787dea6235484c621f327b919200a8f96288edda9befb"
+    },
+    {
+      "run_id": "c_contract_01",
+      "kind": "original_proposals",
+      "path": "artifacts/c_contract_01/original_proposals.json",
+      "sha256": "130e0c4dd63c5930bc975f382019135a49e92074e5a390835db88bf4f20d0fb0"
+    },
+    {
+      "run_id": "c_contract_01",
+      "kind": "technical_score",
+      "path": "artifacts/c_contract_01/technical_score.json",
+      "sha256": "7633cb38e8570d0d805475218e269e4e36e70b7a06bdfeed5bbad06d602d2d3d"
+    },
+    {
+      "run_id": "b_contract_02",
+      "kind": "evidence",
+      "path": "artifacts/b_contract_02/evidence.json",
+      "sha256": "1afd83ccd629cec129633d0253f3b284aafb83b881173770f80113290cfb90ff"
+    },
+    {
+      "run_id": "b_contract_02",
+      "kind": "actions",
+      "path": "artifacts/b_contract_02/actions.jsonl",
+      "sha256": "cdaf3b0620cc75139d0885a4886b876e6c934b988b9f5b59e21bf7313862cfab"
+    },
+    {
+      "run_id": "b_contract_02",
+      "kind": "original_proposals",
+      "path": "artifacts/b_contract_02/original_proposals.json",
+      "sha256": "addab3e30b3abddf5b8ce8a7836c0e59cd90c25d87dd5e6b08b7ff35655eed4f"
+    },
+    {
+      "run_id": "b_contract_02",
+      "kind": "technical_score",
+      "path": "artifacts/b_contract_02/technical_score.json",
+      "sha256": "04f043894a9843be0cd0b11d1aceb19c32d32cfb94a2edc93a71fdcb1aa63385"
+    },
+    {
+      "run_id": "c_contract_02",
+      "kind": "evidence",
+      "path": "artifacts/c_contract_02/evidence.json",
+      "sha256": "a80a10e4dc040cebefc9702432951bc05f4b0058cc3f8b1bf83105fe895bb609"
+    },
+    {
+      "run_id": "c_contract_02",
+      "kind": "actions",
+      "path": "artifacts/c_contract_02/actions.jsonl",
+      "sha256": "fa575c89e75ea06921809aeb4ecca0e6a50a782c48447d27f7c03e233acc7491"
+    },
+    {
+      "run_id": "c_contract_02",
+      "kind": "original_proposals",
+      "path": "artifacts/c_contract_02/original_proposals.json",
+      "sha256": "40cd03f2f7e7bdf201048757b78e4fafc95b2684e7578b06d58c1731f2e80035"
+    },
+    {
+      "run_id": "c_contract_02",
+      "kind": "technical_score",
+      "path": "artifacts/c_contract_02/technical_score.json",
+      "sha256": "876e32439f5c9e161a3f52c4c52ad5ca3e507dc28008354ca3c82cd0eda1fe18"
+    },
+    {
+      "run_id": "b_contract_03",
+      "kind": "evidence",
+      "path": "artifacts/b_contract_03/evidence.json",
+      "sha256": "935c2afabfccf9a31d42f0bc5c406b999b4a37e4fe612784fde5964790bec4b6"
+    },
+    {
+      "run_id": "b_contract_03",
+      "kind": "actions",
+      "path": "artifacts/b_contract_03/actions.jsonl",
+      "sha256": "6b3b950fb9a5f52780c2a48f86b01d0533a061b30f3845da122d3a7c67a30a3f"
+    },
+    {
+      "run_id": "b_contract_03",
+      "kind": "original_proposals",
+      "path": "artifacts/b_contract_03/original_proposals.json",
+      "sha256": "dd66183938bbcc49dfe7a98baf5fd7936979b38423b0fac5c2cdda55e9124a34"
+    },
+    {
+      "run_id": "b_contract_03",
+      "kind": "technical_score",
+      "path": "artifacts/b_contract_03/technical_score.json",
+      "sha256": "2e2e9c8ad77ed5a2ce9e5f0f25330f0345d9d69082f2efd559ca4e53f1bea809"
+    },
+    {
+      "run_id": "c_contract_03",
+      "kind": "evidence",
+      "path": "artifacts/c_contract_03/evidence.json",
+      "sha256": "ad23ff74914da058be31a53937c6abe8b5d1fb9c01cba40ec8f1bc51dd848d45"
+    },
+    {
+      "run_id": "c_contract_03",
+      "kind": "actions",
+      "path": "artifacts/c_contract_03/actions.jsonl",
+      "sha256": "a7d0eba0903080c1e94e81c2dc0dc443c7cd65203843d00d9fa75fd84c8dd89b"
+    },
+    {
+      "run_id": "c_contract_03",
+      "kind": "original_proposals",
+      "path": "artifacts/c_contract_03/original_proposals.json",
+      "sha256": "ca3d7b210aa1adbb2dca1b270d5d1a60ee9bc24e58fc279cf1b3a90cf8bafa22"
+    },
+    {
+      "run_id": "c_contract_03",
+      "kind": "technical_score",
+      "path": "artifacts/c_contract_03/technical_score.json",
+      "sha256": "95d3682f0752c4c1e0d54e61079d9182a12ad5e7cf1af8aaa489b80403533e6b"
+    }
+  ]
+}

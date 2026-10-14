@@ -1,0 +1,115 @@
+{
+  "workflow": "codex_proxy",
+  "split": "development",
+  "approach": "C",
+  "run_id": "c_contract_01",
+  "source_call_count": 1,
+  "source_outputs": [
+    {
+      "status": "completed",
+      "action": "schema",
+      "result": {
+        "name": "sakila_faults",
+        "tables": [
+          {
+            "name": "actor",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "actor_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "first_name",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "last_name",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "film",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "film_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "title",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "rental_rate",
+                "data_type": "decimal",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "rating",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "inventory",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "inventory_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "film_id",
+                "data_type": "int",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "rental",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "rental_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "rental_date",
+                "data_type": "datetime",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "return_date",
+                "data_type": "datetime",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          }
+        ],
+        "relationships": []
+      }
+    }
+  ]
+}

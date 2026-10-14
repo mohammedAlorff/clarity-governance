@@ -1,0 +1,19 @@
+{
+  "purpose": "Unapproved development template. Create a separate independently reviewed held-out protocol for final evaluation.",
+  "protocol_version": "1",
+  "split": "development",
+  "reviewer": null,
+  "reference_reviewed": false,
+  "reference_hash": null,
+  "targets_approved": false,
+  "targets": {},
+  "provider": "local",
+  "resolved_model": "qwen3-4b-instruct-2507",
+  "source_hash": null,
+  "schema_hash": null,
+  "baseline_hash": null,
+  "cache_disabled_attested": false,
+  "cache_attestor": null,
+  "budgets": {"max_calls": 40, "max_steps": 8, "max_seconds": 60, "max_tokens": 16000, "max_output_tokens": 3000, "max_retries": 1},
+  "cases": [{"case_id": "development-demo", "source_hash": null, "schema_hash": null, "baseline_hash": null, "reference_hash": null}]
+}

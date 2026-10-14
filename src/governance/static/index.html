@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070a12">
+  <meta name="color-scheme" content="dark light">
+  <title>Clarity Studio · حوكمة البيانات</title>
+  <script>
+    try {
+      const theme = localStorage.getItem('clarity_theme');
+      const language = localStorage.getItem('clarity_language');
+      if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+      if (language === 'en' || language === 'ar') {
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+      }
+    } catch (_) { /* Preferences are optional in restricted browser contexts. */ }
+  </script>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#overview" aria-label="Clarity overview">
+        <span class="brand-mark" aria-hidden="true">C<span>·</span></span>
+        <span class="brand-copy"><strong>Clarity Studio</strong><span class="brand-subtitle" data-en="DATA GOVERNANCE" data-ar="حوكمة البيانات">حوكمة البيانات</span></span>
+      </a>
+      <div class="workspace-label"><span data-en="WORKSPACE" data-ar="مساحة العمل">مساحة العمل</span><span class="workspace-tag">LOCAL</span></div>
+      <nav id="navigation" aria-label="Workspace">
+        <a href="#overview" data-view="overview"><span class="nav-icon" aria-hidden="true">◫</span><span data-en="Overview" data-ar="نظرة عامة">نظرة عامة</span></a>
+        <a href="#schema" data-view="schema"><span class="nav-icon" aria-hidden="true">▦</span><span data-en="Schema explorer" data-ar="مستكشف المخطط">مستكشف المخطط</span></a>
+        <a href="#review" data-view="review"><span class="nav-icon" aria-hidden="true">☑</span><span data-en="Review queue" data-ar="قائمة المراجعة">قائمة المراجعة</span><span class="nav-count" id="queue-count">—</span></a>
+        <a href="#dictionary" data-view="dictionary"><span class="nav-icon" aria-hidden="true">▤</span><span data-en="Data dictionary" data-ar="قاموس البيانات">قاموس البيانات</span></a>
+        <a href="#quality" data-view="quality"><span class="nav-icon" aria-hidden="true">◷</span><span data-en="Quality report" data-ar="تقرير الجودة">تقرير الجودة</span></a>
+        <a href="#evaluation" data-view="evaluation"><span class="nav-icon" aria-hidden="true">⌁</span><span data-en="Evaluation" data-ar="التقييم">التقييم</span></a>
+        <a href="#privacy" data-view="privacy"><span class="nav-icon" aria-hidden="true">◇</span><span data-en="Privacy" data-ar="الخصوصية">الخصوصية</span></a>
+      </nav>
+      <section class="sidebar-telemetry" aria-label="Runtime status">
+        <div class="telemetry-header"><span data-en="RUNTIME STATUS" data-ar="حالة التشغيل">حالة التشغيل</span><span class="status-indicator" id="runtime-indicator" aria-hidden="true"></span></div>
+        <div class="telemetry-row"><span data-en="Source" data-ar="المصدر">المصدر</span><strong class="telemetry-val" id="sidebar-source">—</strong></div>
+        <div class="telemetry-row"><span data-en="Model" data-ar="النموذج">النموذج</span><strong class="telemetry-val" id="sidebar-provider">—</strong></div>
+        <div class="telemetry-foot" data-en="Read only · Model values filtered" data-ar="قراءة فقط · تُحجب القيم عن النموذج">قراءة فقط · تُحجب القيم عن النموذج</div>
+      </section>
+      <div class="sidebar-bottom"><span class="local-indicator"><i aria-hidden="true"></i><span data-en="Local workspace" data-ar="مساحة محلية">مساحة محلية</span></span><p data-en="Review evidence. Approve decisions. Measure quality." data-ar="راجع الأدلة، اعتمد القرارات، وقِس الجودة.">راجع الأدلة، اعتمد القرارات، وقِس الجودة.</p></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="topbar-left"><div class="breadcrumb"><span data-en="Workspace" data-ar="مساحة العمل">مساحة العمل</span><span aria-hidden="true">/</span><strong id="current-page">نظرة عامة</strong></div><span id="source-status" class="source-status">جارٍ تحميل المصدر…</span></div>
+        <div class="topbar-actions">
+          <span id="model-status" class="model-status">جارٍ التحقق من إعداد النموذج…</span>
+          <button class="button command-inspect" id="command-inspect" data-en="Inspect" data-ar="افحص المصدر">افحص المصدر</button>
+          <button class="button command-run" id="command-run" data-en="Run approved checks" data-ar="شغّل القواعد المعتمدة">شغّل القواعد المعتمدة</button>
+          <button class="icon-button utility-button" id="themeToggleBtn" type="button" aria-label="تغيير المظهر" title="تغيير المظهر">☼</button>
+          <button class="icon-button utility-button" id="langToggleBtn" type="button" aria-label="Change language" title="Change language">EN</button>
+          <button class="icon-button utility-button" id="refresh" type="button" aria-label="تحديث مساحة العمل" title="تحديث مساحة العمل">↻</button>
+        </div>
+      </header>
+      <div class="pipeline-wrap" aria-label="Data governance pipeline">
+        <div class="pipeline-title" data-en="GOVERNANCE PIPELINE" data-ar="مسار حوكمة البيانات">مسار حوكمة البيانات</div>
+        <ol class="pipeline" id="pipeline-banner">
+          <li><span>01</span><strong data-en="Schema profiler" data-ar="مستكشف المخطط">مستكشف المخطط</strong></li>
+          <li><span>02</span><strong data-en="SQL quality" data-ar="جودة SQL">جودة SQL</strong></li>
+          <li><span>03</span><strong data-en="Privacy guard" data-ar="حماية الخصوصية">حماية الخصوصية</strong></li>
+          <li><span>04</span><strong data-en="Governance agent" data-ar="وكيل الحوكمة">وكيل الحوكمة</strong></li>
+          <li><span>05</span><strong data-en="Steward store" data-ar="سجل القرارات">سجل القرارات</strong></li>
+        </ol>
+      </div>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <main id="main" tabindex="-1"><div class="loading-state"><span class="spinner"></span><h2>جارٍ فتح مساحة العمل</h2><p>يتم تحميل المخطط والمقترحات والتقارير المحفوظة.</p></div></main>
+      <footer class="page-footer"><span>Clarity Studio <span class="footer-dot">·</span> <span data-en="Governance with evidence" data-ar="حوكمة مدعومة بالأدلة">حوكمة مدعومة بالأدلة</span></span><span data-en="Read only · Human reviewed" data-ar="قراءة فقط · القرارات بمراجعة بشرية">قراءة فقط · القرارات بمراجعة بشرية</span></footer>
+    </div>
+  </div>
+  <dialog id="proposal-dialog" aria-labelledby="dialog-title">
+    <form id="proposal-form">
+      <div class="dialog-heading"><div><span class="eyebrow">PROPOSAL REVIEW</span><h2 id="dialog-title">Review proposal</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close dialog">×</button></div>
+      <div id="dialog-content"></div>
+      <div id="dialog-error" class="form-error" role="alert" hidden></div>
+      <div class="dialog-footer"><button type="button" class="button secondary" id="cancel-dialog">Cancel</button><button type="submit" class="button primary" id="dialog-submit">Save review</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

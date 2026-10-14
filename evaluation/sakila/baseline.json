@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {"rule_id":"film_title_present","metric_id":"completeness","target":{"table":"film","column":"title"},"parameters":{}},
+    {"rule_id":"actor_id_unique","metric_id":"uniqueness","target":{"table":"actor","column":"actor_id"},"parameters":{}},
+    {"rule_id":"payment_nonnegative","metric_id":"range","target":{"table":"payment","column":"amount"},"parameters":{"min":0}},
+    {"rule_id":"film_rating_vocabulary","metric_id":"allowed_values","target":{"table":"film","column":"rating"},"parameters":{"values":["G","PG","PG-13","R","NC-17"]}},
+    {"rule_id":"actor_first_name_uppercase","metric_id":"pattern","target":{"table":"actor","column":"first_name"},"parameters":{"pattern":"^[A-Z]+$"}},
+    {"rule_id":"return_after_rental","metric_id":"column_compare","target":{"table":"rental","column":"return_date"},"parameters":{"other_column":"rental_date","operator":">="}},
+    {"rule_id":"inventory_film_exists","metric_id":"referential","target":{"table":"inventory","column":"film_id"},"parameters":{"reference_table":"film","reference_column":"film_id"}}
+  ]
+}

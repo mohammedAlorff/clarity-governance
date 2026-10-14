@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {"rule_id": "name_present", "metric_id": "completeness", "target": {"table": "actor", "column": "first_name"}, "parameters": {}},
+    {"rule_id": "title_unique", "metric_id": "uniqueness", "target": {"table": "film", "column": "title"}, "parameters": {}},
+    {"rule_id": "rate_range", "metric_id": "range", "target": {"table": "film", "column": "rental_rate"}, "parameters": {"min": 0, "max": 10}},
+    {"rule_id": "rating_allowed", "metric_id": "allowed_values", "target": {"table": "film", "column": "rating"}, "parameters": {"values": ["G", "PG", "PG-13", "R", "NC-17"]}},
+    {"rule_id": "name_pattern", "metric_id": "pattern", "target": {"table": "actor", "column": "last_name"}, "parameters": {"pattern": "^[A-Z]+$"}},
+    {"rule_id": "return_after_rental", "metric_id": "column_compare", "target": {"table": "rental", "column": "return_date"}, "parameters": {"other_column": "rental_date", "operator": ">="}},
+    {"rule_id": "film_exists", "metric_id": "referential", "target": {"table": "inventory", "column": "film_id"}, "parameters": {"reference_table": "film", "reference_column": "film_id"}}
+  ]
+}

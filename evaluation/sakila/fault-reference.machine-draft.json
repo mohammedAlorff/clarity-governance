@@ -1,0 +1,35 @@
+{
+  "purpose": "Machine-authored public-Sakila fault-injection technical probe. This is not held-out research, a human-reviewed reference, or model-performance evidence.",
+  "reference_reviewed": false,
+  "source": "https://downloads.mysql.com/docs/sakila-db.zip",
+  "schema": "sakila_faults",
+  "population": "Public IDs 1 through 10 from actor, film, inventory, rental; selected columns copied. Constraints deliberately relaxed only in this separate development schema.",
+  "injections": [
+    {"table": "actor", "row_id": 1, "change": "first_name=NULL", "rule_id": "name_present"},
+    {"table": "actor", "row_id": 2, "change": "last_name='123'", "rule_id": "name_pattern"},
+    {"table": "film", "row_id": 2, "change": "title copied from film 1; both rows fail uniqueness", "rule_id": "title_unique"},
+    {"table": "film", "row_id": 3, "change": "rental_rate=-1", "rule_id": "rate_range"},
+    {"table": "film", "row_id": 4, "change": "rating='INVALID'", "rule_id": "rating_allowed"},
+    {"table": "rental", "row_id": 1, "change": "return_date one day before rental_date", "rule_id": "return_after_rental"},
+    {"table": "inventory", "row_id": 1, "change": "film_id=-1, absent from copied film IDs", "rule_id": "film_exists"}
+  ],
+  "detections": [
+    {"rule_id": "name_present", "row_id": 1, "target": "actor.first_name"},
+    {"rule_id": "title_unique", "row_id": 1, "target": "film.title"},
+    {"rule_id": "title_unique", "row_id": 2, "target": "film.title"},
+    {"rule_id": "rate_range", "row_id": 3, "target": "film.rental_rate"},
+    {"rule_id": "rating_allowed", "row_id": 4, "target": "film.rating"},
+    {"rule_id": "name_pattern", "row_id": 2, "target": "actor.last_name"},
+    {"rule_id": "return_after_rental", "row_id": 1, "target": "rental.return_date"},
+    {"rule_id": "film_exists", "row_id": 1, "target": "inventory.film_id"}
+  ],
+  "expected_clean_row_ids": {
+    "name_present": [2,3,4,5,6,7,8,9,10],
+    "title_unique": [3,4,5,6,7,8,9,10],
+    "rate_range": [1,2,4,5,6,7,8,9,10],
+    "rating_allowed": [1,2,3,5,6,7,8,9,10],
+    "name_pattern": [1,3,4,5,6,7,8,9,10],
+    "return_after_rental": [2,3,4,5,6,7,8,9,10],
+    "film_exists": [2,3,4,5,6,7,8,9,10]
+  }
+}

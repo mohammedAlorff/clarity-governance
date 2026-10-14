@@ -1,0 +1,170 @@
+{
+  "run_id": "b_contract_01",
+  "approach": "B",
+  "provider": "codex-task-agent",
+  "model": "gpt-5.6-sol",
+  "split": "development",
+  "status": "completed",
+  "proposals": [
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Require actor primary identifier values",
+      "description": "Check that every declared primary-key value is populated.",
+      "evidence": ["Schema marks actor.actor_id as non-nullable and PRI.", "Profile reports 10 rows, 10 non-null values, and 0 null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Keep actor primary identifiers unique",
+      "description": "Check that the declared primary key has no duplicate values.",
+      "evidence": ["Schema marks actor.actor_id as PRI.", "Profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Require film primary identifier values",
+      "description": "Check that every declared primary-key value is populated.",
+      "evidence": ["Schema marks film.film_id as non-nullable and PRI.", "Profile reports 10 rows, 10 non-null values, and 0 null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Keep film primary identifiers unique",
+      "description": "Check that the declared primary key has no duplicate values.",
+      "evidence": ["Schema marks film.film_id as PRI.", "Profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Require inventory primary identifier values",
+      "description": "Check that every declared primary-key value is populated.",
+      "evidence": ["Schema marks inventory.inventory_id as non-nullable and PRI.", "Profile reports 10 rows, 10 non-null values, and 0 null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Keep inventory primary identifiers unique",
+      "description": "Check that the declared primary key has no duplicate values.",
+      "evidence": ["Schema marks inventory.inventory_id as PRI.", "Profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Require rental primary identifier values",
+      "description": "Check that every declared primary-key value is populated.",
+      "evidence": ["Schema marks rental.rental_id as non-nullable and PRI.", "Profile reports 10 rows, 10 non-null values, and 0 null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Keep rental primary identifiers unique",
+      "description": "Check that the declared primary key has no duplicate values.",
+      "evidence": ["Schema marks rental.rental_id as PRI.", "Profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared PRI metadata accurately identifies a primary-key column."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "first_name"},
+      "title": "Clarify whether actor first names are required",
+      "description": "Determine whether missing first-name values are acceptable before defining a completeness rule.",
+      "evidence": ["Schema permits nulls for actor.first_name.", "Profile reports 1 null among 10 rows."],
+      "assumptions": ["Nullability metadata alone does not establish the intended business requirement."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "last_name"},
+      "title": "Clarify whether actor last names are required",
+      "description": "Confirm whether the observed completeness should be enforced despite the column allowing nulls.",
+      "evidence": ["Schema permits nulls for actor.last_name.", "Profile reports 10 non-null values across 10 rows."],
+      "assumptions": ["A fully populated 10-row sample does not by itself establish a mandatory-field policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "title"},
+      "title": "Clarify film title duplication policy",
+      "description": "Decide whether repeated titles are legitimate or whether title uniqueness should be monitored.",
+      "evidence": ["Profile reports 9 distinct title values among 10 non-null values.", "Schema permits nulls for film.title."],
+      "assumptions": ["Distinct-count evidence does not reveal which values repeat or whether repetition is erroneous."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "rental_rate"},
+      "title": "Define acceptable rental rate bounds",
+      "description": "Establish approved numeric bounds before adding a range check for rental rates.",
+      "evidence": ["Schema identifies film.rental_rate as decimal.", "Profile reports 10 non-null values and 4 distinct values but provides no minima or maxima."],
+      "assumptions": ["Observed completeness and cardinality do not establish valid business bounds."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "rating"},
+      "title": "Define the approved film rating vocabulary",
+      "description": "Obtain the sanctioned category list before configuring an allowed-values rule.",
+      "evidence": ["Profile reports 6 distinct rating values across 10 non-null values.", "The supplied evidence does not include the actual rating values."],
+      "assumptions": ["Column names and cardinality are insufficient to infer an approved category set."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "inventory", "column": "film_id"},
+      "title": "Confirm the intended inventory film reference",
+      "description": "Confirm whether this column must reference a film identifier and whether nulls are permitted before defining referential and completeness rules.",
+      "evidence": ["inventory.film_id and film.film_id are both integer columns.", "Schema lists no relationships, while the profile reports 10 non-null values and 3 distinct values for inventory.film_id."],
+      "assumptions": ["Matching identifier-like names are untrusted metadata and do not prove a relationship."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "rental_date"},
+      "title": "Clarify whether rental dates are mandatory",
+      "description": "Confirm whether every rental record must have a populated rental date before enforcing completeness.",
+      "evidence": ["Schema permits nulls for rental.rental_date.", "Profile reports 10 non-null and 10 distinct values across 10 rows."],
+      "assumptions": ["Observed completeness in a small profile does not establish mandatory business semantics."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "return_date"},
+      "title": "Clarify return date completeness and ordering",
+      "description": "Confirm whether return dates may be absent and whether a populated return date must be on or after the rental date before defining checks.",
+      "evidence": ["Schema permits nulls for rental.return_date.", "Both rental_date and return_date are datetime columns with 10 non-null values in their profiles."],
+      "assumptions": ["Column names suggest possible temporal ordering, but identifiers are untrusted and no business policy was supplied."],
+      "status": "needs_clarification",
+      "rule": null
+    }
+  ]
+}

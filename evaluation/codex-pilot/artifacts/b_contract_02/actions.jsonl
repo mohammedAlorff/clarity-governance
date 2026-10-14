@@ -1,0 +1,13 @@
+{"timestamp":"2026-10-14T05:20:28.825151Z","action":"schema","target":null,"status":"completed","result":{"tables":4,"columns":12,"relationships":0}}
+{"timestamp":"2026-10-14T05:20:29.058349Z","action":"profile","target":{"table":"actor","column":"actor_id"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:29.219048Z","action":"profile","target":{"table":"actor","column":"first_name"},"status":"completed","result":{"row_count":10,"null_count":1,"non_null_count":9,"distinct_count":9}}
+{"timestamp":"2026-10-14T05:20:29.376390Z","action":"profile","target":{"table":"actor","column":"last_name"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:29.538579Z","action":"profile","target":{"table":"film","column":"film_id"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:29.690824Z","action":"profile","target":{"table":"film","column":"title"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":9}}
+{"timestamp":"2026-10-14T05:20:29.851677Z","action":"profile","target":{"table":"film","column":"rental_rate"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":4}}
+{"timestamp":"2026-10-14T05:20:30.005489Z","action":"profile","target":{"table":"film","column":"rating"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":6}}
+{"timestamp":"2026-10-14T05:20:30.176776Z","action":"profile","target":{"table":"inventory","column":"inventory_id"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:30.337629Z","action":"profile","target":{"table":"inventory","column":"film_id"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":3}}
+{"timestamp":"2026-10-14T05:20:30.492629Z","action":"profile","target":{"table":"rental","column":"rental_id"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:30.653471Z","action":"profile","target":{"table":"rental","column":"rental_date"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}
+{"timestamp":"2026-10-14T05:20:30.791022Z","action":"profile","target":{"table":"rental","column":"return_date"},"status":"completed","result":{"row_count":10,"null_count":0,"non_null_count":10,"distinct_count":10}}

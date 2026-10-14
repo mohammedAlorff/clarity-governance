@@ -1,0 +1,170 @@
+{
+  "run_id": "b_contract_02",
+  "approach": "B",
+  "provider": "codex-task-agent",
+  "model": "gpt-5.6-sol",
+  "split": "development",
+  "status": "completed",
+  "proposals": [
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Require actor primary key values",
+      "description": "Check that every declared actor primary-key value is present.",
+      "evidence": ["The schema marks actor.actor_id as non-nullable and PRI.", "The profile reports 10 non-null values and 0 nulls across 10 rows."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Keep actor primary key unique",
+      "description": "Check that actor primary-key values do not repeat.",
+      "evidence": ["The schema marks actor.actor_id as PRI.", "The profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Require film primary key values",
+      "description": "Check that every declared film primary-key value is present.",
+      "evidence": ["The schema marks film.film_id as non-nullable and PRI.", "The profile reports 10 non-null values and 0 nulls across 10 rows."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Keep film primary key unique",
+      "description": "Check that film primary-key values do not repeat.",
+      "evidence": ["The schema marks film.film_id as PRI.", "The profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Require inventory primary key values",
+      "description": "Check that every declared inventory primary-key value is present.",
+      "evidence": ["The schema marks inventory.inventory_id as non-nullable and PRI.", "The profile reports 10 non-null values and 0 nulls across 10 rows."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Keep inventory primary key unique",
+      "description": "Check that inventory primary-key values do not repeat.",
+      "evidence": ["The schema marks inventory.inventory_id as PRI.", "The profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Require rental primary key values",
+      "description": "Check that every declared rental primary-key value is present.",
+      "evidence": ["The schema marks rental.rental_id as non-nullable and PRI.", "The profile reports 10 non-null values and 0 nulls across 10 rows."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Keep rental primary key unique",
+      "description": "Check that rental primary-key values do not repeat.",
+      "evidence": ["The schema marks rental.rental_id as PRI.", "The profile reports 10 distinct values across 10 non-null values."],
+      "assumptions": ["The declared primary-key constraint reflects the intended data contract."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "first_name"},
+      "title": "Clarify actor first-name completeness",
+      "description": "Decide whether missing first-name values are acceptable before adopting a completeness rule.",
+      "evidence": ["The column is declared nullable.", "The profile reports 1 null among 10 rows."],
+      "assumptions": ["The profile is descriptive and does not establish whether the null is valid."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "last_name"},
+      "title": "Clarify actor last-name completeness",
+      "description": "Confirm whether last names are required before converting the observed completeness into a rule.",
+      "evidence": ["The column is declared nullable.", "The profile reports 0 nulls among 10 rows."],
+      "assumptions": ["Observed completeness in 10 rows may reflect current data rather than policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "title"},
+      "title": "Clarify film title requirements",
+      "description": "Confirm whether titles must be present and whether repeated titles are allowed before defining completeness or uniqueness checks.",
+      "evidence": ["The column is declared nullable.", "The profile reports 10 non-null values but only 9 distinct values."],
+      "assumptions": ["The repeated value may be legitimate, and the profile does not reveal the intended title key semantics."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "rental_rate"},
+      "title": "Define valid rental-rate bounds",
+      "description": "Obtain approved minimum and maximum values, and confirm whether missing values are allowed, before defining numeric checks.",
+      "evidence": ["The column is decimal and declared nullable.", "The profile reports 10 non-null values and 4 distinct values but provides no observed bounds."],
+      "assumptions": ["Distinct-count evidence alone cannot determine valid monetary bounds or completeness policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "rating"},
+      "title": "Define the approved rating vocabulary",
+      "description": "Obtain the authoritative rating values and missing-value policy before defining an allowed-values rule.",
+      "evidence": ["The column is varchar and declared nullable.", "The profile reports 6 distinct non-null values across 10 rows but does not disclose those values."],
+      "assumptions": ["A distinct count does not identify the approved categorical vocabulary."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "inventory", "column": "film_id"},
+      "title": "Confirm inventory film reference semantics",
+      "description": "Confirm whether this column references another declared key and whether nulls are allowed before defining referential or completeness checks.",
+      "evidence": ["The column is an integer, declared nullable, and has 3 distinct non-null values across 10 rows.", "The supplied schema reports no relationships."],
+      "assumptions": ["The column name is untrusted metadata and is insufficient to establish a relationship."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "rental_date"},
+      "title": "Clarify rental-date completeness",
+      "description": "Confirm whether every record must have a rental date before defining a completeness check.",
+      "evidence": ["The datetime column is declared nullable.", "The profile reports 10 non-null and 10 distinct values across 10 rows."],
+      "assumptions": ["Observed completeness does not by itself establish a required-field policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "return_date"},
+      "title": "Clarify return-date lifecycle and ordering",
+      "description": "Confirm when return dates may be missing and whether they must be on or after rental_date before defining completeness or column-comparison checks.",
+      "evidence": ["The datetime column is declared nullable.", "The profile reports 10 non-null and 10 distinct values across 10 rows.", "Both rental_date and return_date exist in the same table, but no row-pair evidence or business definition is supplied."],
+      "assumptions": ["Column names alone do not establish lifecycle or temporal-order policy."],
+      "status": "needs_clarification",
+      "rule": null
+    }
+  ]
+}

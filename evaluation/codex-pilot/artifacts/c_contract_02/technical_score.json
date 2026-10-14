@@ -1,0 +1,238 @@
+{
+  "run_id": "c_contract_02",
+  "approach": "C",
+  "provider": "codex-task-agent",
+  "model": "gpt-5.6-sol",
+  "split": "development",
+  "reference_reviewed": false,
+  "formal_final_eligible": false,
+  "scoring": "strict exact rule configuration; unmatched detections count as false positives",
+  "status": "awaiting_human_review",
+  "proposal_count": 15,
+  "rule_count_executed": 8,
+  "proposal_assessments": [
+    {
+      "proposal_index": 0,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 1,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 2,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 3,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 4,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 5,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 6,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 7,
+      "status": "executed_read_only",
+      "matched_reference_rule_id": null
+    },
+    {
+      "proposal_index": 8,
+      "status": "clarification_unexecuted"
+    },
+    {
+      "proposal_index": 9,
+      "status": "clarification_unexecuted"
+    },
+    {
+      "proposal_index": 10,
+      "status": "clarification_unexecuted"
+    },
+    {
+      "proposal_index": 11,
+      "status": "description_unassessed"
+    },
+    {
+      "proposal_index": 12,
+      "status": "clarification_unexecuted"
+    },
+    {
+      "proposal_index": 13,
+      "status": "clarification_unexecuted"
+    },
+    {
+      "proposal_index": 14,
+      "status": "description_unassessed"
+    }
+  ],
+  "detections": [],
+  "metrics": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 8,
+    "precision": null,
+    "recall": 0.0,
+    "f1": null,
+    "predicted_count": 0,
+    "reference_count": 8
+  },
+  "rule_results": [
+    {
+      "metric_id": "completeness",
+      "target": {
+        "table": "actor",
+        "column": "actor_id"
+      },
+      "dimension": "completeness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "All source rows are eligible.",
+      "null_handling": "NULL values are violations; empty strings are present values.",
+      "rule_id": "candidate_0"
+    },
+    {
+      "metric_id": "uniqueness",
+      "target": {
+        "table": "actor",
+        "column": "actor_id"
+      },
+      "dimension": "uniqueness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "Rows whose target column contains a non-NULL value.",
+      "null_handling": "NULL target values are excluded from the eligible population.",
+      "rule_id": "candidate_1"
+    },
+    {
+      "metric_id": "completeness",
+      "target": {
+        "table": "film",
+        "column": "film_id"
+      },
+      "dimension": "completeness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "All source rows are eligible.",
+      "null_handling": "NULL values are violations; empty strings are present values.",
+      "rule_id": "candidate_2"
+    },
+    {
+      "metric_id": "uniqueness",
+      "target": {
+        "table": "film",
+        "column": "film_id"
+      },
+      "dimension": "uniqueness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "Rows whose target column contains a non-NULL value.",
+      "null_handling": "NULL target values are excluded from the eligible population.",
+      "rule_id": "candidate_3"
+    },
+    {
+      "metric_id": "completeness",
+      "target": {
+        "table": "inventory",
+        "column": "inventory_id"
+      },
+      "dimension": "completeness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "All source rows are eligible.",
+      "null_handling": "NULL values are violations; empty strings are present values.",
+      "rule_id": "candidate_4"
+    },
+    {
+      "metric_id": "uniqueness",
+      "target": {
+        "table": "inventory",
+        "column": "inventory_id"
+      },
+      "dimension": "uniqueness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "Rows whose target column contains a non-NULL value.",
+      "null_handling": "NULL target values are excluded from the eligible population.",
+      "rule_id": "candidate_5"
+    },
+    {
+      "metric_id": "completeness",
+      "target": {
+        "table": "rental",
+        "column": "rental_id"
+      },
+      "dimension": "completeness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "All source rows are eligible.",
+      "null_handling": "NULL values are violations; empty strings are present values.",
+      "rule_id": "candidate_6"
+    },
+    {
+      "metric_id": "uniqueness",
+      "target": {
+        "table": "rental",
+        "column": "rental_id"
+      },
+      "dimension": "uniqueness",
+      "status": "completed",
+      "eligible": 10,
+      "passing": 10,
+      "violations": 0,
+      "reason": null,
+      "violation_ids": [],
+      "eligible_population": "Rows whose target column contains a non-NULL value.",
+      "null_handling": "NULL target values are excluded from the eligible population.",
+      "rule_id": "candidate_7"
+    }
+  ],
+  "source_rule_execution": "read-only technical scoring; no application approval or activation",
+  "scored_at": "2026-10-14T05:27:07.817449+00:00",
+  "source_hash": "7f1dc4743c58b1cef99ae318cf3d6d13e4f564d3ab90eb72870d8252c89ab415",
+  "reference_hash": "85a38305e0e4ecf80cf1f18d02def3f7c92350fd16d8a350500ec848d4f22634",
+  "trial_hash": "835458aa07f33eee206f82138cb3ae7a49bf8b7fafb1beb7cc9d5e003ff46048",
+  "schema_projection_hash": "8f8bcd30d69ffd710c6fc2d6163cb58cfd9a2766e4eba79c5d78a8015e64c741"
+}

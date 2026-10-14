@@ -1,0 +1,15 @@
+{
+  "purpose": "Synthetic development fixture only; not an approved research baseline.",
+  "split": "development",
+  "authorship": "machine-authored",
+  "rules": [
+    {"rule_id": "customers_email_required", "metric_id": "completeness", "target": {"table": "customers", "column": "email"}, "parameters": {}},
+    {"rule_id": "customers_email_unique", "metric_id": "uniqueness", "target": {"table": "customers", "column": "email"}, "parameters": {}},
+    {"rule_id": "customers_age_range", "metric_id": "range", "target": {"table": "customers", "column": "age"}, "parameters": {"min": 0, "max": 120}},
+    {"rule_id": "orders_amount_nonnegative", "metric_id": "range", "target": {"table": "orders", "column": "amount"}, "parameters": {"min": 0}},
+    {"rule_id": "customers_status_allowed", "metric_id": "allowed_values", "target": {"table": "customers", "column": "status"}, "parameters": {"values": ["active", "inactive"]}},
+    {"rule_id": "customers_email_shape", "metric_id": "pattern", "target": {"table": "customers", "column": "email"}, "parameters": {"pattern": "[^@ ]+@[^@ ]+\\.[^@ ]+"}},
+    {"rule_id": "orders_shipping_sequence", "metric_id": "column_compare", "target": {"table": "orders", "column": "shipped_at"}, "parameters": {"other_column": "ordered_at", "operator": ">="}},
+    {"rule_id": "orders_customer_exists", "metric_id": "referential", "target": {"table": "orders", "column": "customer_id"}, "parameters": {"reference_table": "customers", "reference_column": "id"}}
+  ]
+}

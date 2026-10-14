@@ -1,0 +1,18 @@
+{
+  "purpose": "Explicit expected violations enumerated from DemoSource for fixture regression testing, not human-reviewed ground truth.",
+  "authorship": "machine-authored",
+  "split": "development",
+  "reference_reviewed": false,
+  "reviewer": null,
+  "detections": [
+    {"rule_id": "customers_email_required", "row_id": 4, "target": "customers.email"},
+    {"rule_id": "customers_email_unique", "row_id": 2, "target": "customers.email"},
+    {"rule_id": "customers_email_unique", "row_id": 3, "target": "customers.email"},
+    {"rule_id": "customers_age_range", "row_id": 5, "target": "customers.age"},
+    {"rule_id": "orders_amount_nonnegative", "row_id": 102, "target": "orders.amount"},
+    {"rule_id": "customers_status_allowed", "row_id": 6, "target": "customers.status"},
+    {"rule_id": "customers_email_shape", "row_id": 5, "target": "customers.email"},
+    {"rule_id": "orders_shipping_sequence", "row_id": 103, "target": "orders.shipped_at"},
+    {"rule_id": "orders_customer_exists", "row_id": 104, "target": "orders.customer_id"}
+  ]
+}

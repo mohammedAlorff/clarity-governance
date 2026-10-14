@@ -1,0 +1,8 @@
+{
+  "purpose": "Blank form; fill only after an actual human has reviewed the original artifact and mapped detections to an independently reviewed reference.",
+  "reviewer": null,
+  "reference_hash": null,
+  "review_seconds": null,
+  "original_detections": null,
+  "detections": []
+}

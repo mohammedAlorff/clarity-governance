@@ -1,0 +1,180 @@
+{
+  "run_id": "c_contract_01",
+  "approach": "C",
+  "provider": "codex-task-agent",
+  "model": "gpt-5.6-sol",
+  "split": "development",
+  "status": "completed",
+  "proposals": [
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Actor identifier is populated",
+      "description": "Require every actor identifier to be non-null so each record can be addressed reliably.",
+      "evidence": ["Schema marks actor.actor_id as a non-null integer primary key.", "Profile reports 10 rows, 10 non-null values, and 0 nulls."],
+      "assumptions": ["The primary-key metadata represents the intended record identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "actor", "column": "actor_id"},
+      "title": "Actor identifier is unique",
+      "description": "Require actor identifiers to be unique across the table.",
+      "evidence": ["Schema labels actor.actor_id as the primary key.", "Uniqueness metric evaluated 10 values with 10 passing and 0 violations."],
+      "assumptions": ["Each actor row is intended to have a distinct identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "actor", "column": "actor_id"}, "parameters": {}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "first_name"},
+      "title": "Clarify whether actor first name is mandatory",
+      "description": "The column appears to contain a first-name component, but its optionality needs a business decision before enforcing completeness.",
+      "evidence": ["Schema defines actor.first_name as nullable text.", "Profile reports 9 non-null values and 1 null among 10 rows."],
+      "assumptions": ["The identifier may describe a personal-name field, but identifiers are treated as untrusted metadata."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "actor", "column": "last_name"},
+      "title": "Document actor last-name semantics",
+      "description": "Confirm whether this text field is a required family-name component and whether naming conventions permit blanks or single-part names.",
+      "evidence": ["Schema defines actor.last_name as nullable text.", "Profile reports 10 non-null and 10 distinct values among 10 rows."],
+      "assumptions": ["Observed completeness does not by itself establish a mandatory-name policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Film identifier is populated",
+      "description": "Require every film identifier to be non-null.",
+      "evidence": ["Schema marks film.film_id as a non-null integer primary key.", "Profile reports 10 rows, 10 non-null values, and 0 nulls."],
+      "assumptions": ["The primary-key metadata represents the intended record identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "film_id"},
+      "title": "Film identifier is unique",
+      "description": "Require film identifiers to be unique across the table.",
+      "evidence": ["Schema labels film.film_id as the primary key.", "Uniqueness metric evaluated 10 values with 10 passing and 0 violations."],
+      "assumptions": ["Each film row is intended to have a distinct identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "film", "column": "film_id"}, "parameters": {}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "title"},
+      "title": "Clarify whether film titles must be unique",
+      "description": "Define whether repeated titles are legitimate or whether this field should uniquely identify a film within an unstated scope.",
+      "evidence": ["Profile reports 10 non-null values but only 9 distinct values among 10 rows.", "Schema does not mark film.title as a key."],
+      "assumptions": ["A repeated title may be valid, so distinct-count evidence is insufficient for a uniqueness policy."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "film", "column": "rental_rate"},
+      "title": "Rental rate is nonnegative",
+      "description": "Require the numeric rate to be zero or greater, subject to confirmation that the field represents a charge rather than an adjustment.",
+      "evidence": ["Schema defines film.rental_rate as decimal.", "Profile reports 10 non-null values and 4 distinct values; the guarded sample confirms numeric shape."],
+      "assumptions": ["If the field represents a charge, negative values are not valid."],
+      "status": "needs_clarification",
+      "rule": {"metric_id": "range", "target": {"table": "film", "column": "rental_rate"}, "parameters": {"min": 0}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "film", "column": "rating"},
+      "title": "Define the film rating vocabulary",
+      "description": "Confirm the authoritative set of permitted rating labels before creating an allowed-values rule.",
+      "evidence": ["Schema defines film.rating as nullable text.", "Profile reports 10 non-null values and 6 distinct values; the guarded sample exposes only a short-string shape and no raw labels."],
+      "assumptions": ["A controlled vocabulary may exist, but its members cannot be inferred safely from metadata or redacted samples."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Inventory identifier is populated",
+      "description": "Require every inventory identifier to be non-null.",
+      "evidence": ["Schema marks inventory.inventory_id as a non-null integer primary key.", "Profile reports 10 rows, 10 non-null values, and 0 nulls."],
+      "assumptions": ["The primary-key metadata represents the intended record identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "inventory_id"},
+      "title": "Inventory identifier is unique",
+      "description": "Require inventory identifiers to be unique across the table.",
+      "evidence": ["Schema labels inventory.inventory_id as the primary key.", "Uniqueness metric evaluated 10 values with 10 passing and 0 violations."],
+      "assumptions": ["Each inventory row is intended to have a distinct identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "inventory", "column": "inventory_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "inventory", "column": "film_id"},
+      "title": "Inventory film reference resolves",
+      "description": "Require each non-null inventory film identifier to match an existing film identifier.",
+      "evidence": ["Both inventory.film_id and film.film_id are integer columns.", "Referential metric evaluated 10 values with 9 passing and 1 violation against film.film_id."],
+      "assumptions": ["The matching names and compatible types indicate the intended reference; schema relationship metadata is absent."],
+      "status": "needs_clarification",
+      "rule": {"metric_id": "referential", "target": {"table": "inventory", "column": "film_id"}, "parameters": {"reference_table": "film", "reference_column": "film_id"}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "inventory", "column": "film_id"},
+      "title": "Clarify whether every inventory row requires a film",
+      "description": "Confirm whether null film references are ever valid before enforcing completeness on this column.",
+      "evidence": ["Schema defines inventory.film_id as nullable integer.", "Profile reports 10 non-null values and 0 nulls in the observed 10 rows."],
+      "assumptions": ["Current completeness is observational and does not establish mandatory participation."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Rental identifier is populated",
+      "description": "Require every rental identifier to be non-null.",
+      "evidence": ["Schema marks rental.rental_id as a non-null integer primary key.", "Profile reports 10 rows, 10 non-null values, and 0 nulls."],
+      "assumptions": ["The primary-key metadata represents the intended record identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "completeness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "rule",
+      "target": {"table": "rental", "column": "rental_id"},
+      "title": "Rental identifier is unique",
+      "description": "Require rental identifiers to be unique across the table.",
+      "evidence": ["Schema labels rental.rental_id as the primary key.", "Uniqueness metric evaluated 10 values with 10 passing and 0 violations."],
+      "assumptions": ["Each rental row is intended to have a distinct identifier."],
+      "status": "draft",
+      "rule": {"metric_id": "uniqueness", "target": {"table": "rental", "column": "rental_id"}, "parameters": {}}
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "rental_date"},
+      "title": "Document rental start timestamp requirements",
+      "description": "Confirm that this datetime represents the start of a rental and whether it must always be present.",
+      "evidence": ["Schema defines rental.rental_date as nullable datetime.", "Profile reports 10 non-null and 10 distinct values among 10 rows."],
+      "assumptions": ["The column name suggests temporal meaning that requires business confirmation."],
+      "status": "needs_clarification",
+      "rule": null
+    },
+    {
+      "kind": "description",
+      "target": {"table": "rental", "column": "return_date"},
+      "title": "Clarify return timestamp lifecycle and ordering",
+      "description": "Confirm whether null means an open rental and whether populated return timestamps must be on or after the corresponding rental timestamp.",
+      "evidence": ["Schema defines rental.return_date and rental.rental_date as nullable datetime columns.", "Profile reports 10 non-null and 10 distinct return timestamps among 10 rows; no validated comparison result was available within the action budget."],
+      "assumptions": ["The identifiers suggest an event sequence, but that semantic policy is not established by metadata."],
+      "status": "needs_clarification",
+      "rule": null
+    }
+  ]
+}

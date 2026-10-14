@@ -1,0 +1,47 @@
+{
+  "purpose": "Unapproved review candidate for the public Sakila development fault fixture. Not a held-out case or human-reviewed ground truth.",
+  "reference_reviewed": false,
+  "reviewer": null,
+  "rules": [
+    {"rule_id": "name_present", "metric_id": "completeness", "target": "actor.first_name", "parameters": {}, "accepted_rationale": null},
+    {"rule_id": "title_unique", "metric_id": "uniqueness", "target": "film.title", "parameters": {}, "accepted_rationale": null},
+    {"rule_id": "rate_range", "metric_id": "range", "target": "film.rental_rate", "parameters": {"min": 0, "max": 10}, "accepted_rationale": null},
+    {"rule_id": "rating_allowed", "metric_id": "allowed_values", "target": "film.rating", "parameters": {"values": ["G", "PG", "PG-13", "R", "NC-17"]}, "accepted_rationale": null},
+    {"rule_id": "name_pattern", "metric_id": "pattern", "target": "actor.last_name", "parameters": {"pattern": "^[A-Z]+$"}, "accepted_rationale": null},
+    {"rule_id": "return_after_rental", "metric_id": "column_compare", "target": "rental.return_date", "parameters": {"other_column": "rental_date", "operator": ">="}, "accepted_rationale": null},
+    {"rule_id": "film_exists", "metric_id": "referential", "target": "inventory.film_id", "parameters": {"reference_table": "film", "reference_column": "film_id"}, "accepted_rationale": null}
+  ],
+  "columns": [
+    {"target": "actor.actor_id", "accepted_meaning": null},
+    {"target": "actor.first_name", "accepted_meaning": null},
+    {"target": "actor.last_name", "accepted_meaning": null},
+    {"target": "film.film_id", "accepted_meaning": null},
+    {"target": "film.title", "accepted_meaning": null},
+    {"target": "film.rental_rate", "accepted_meaning": null},
+    {"target": "film.rating", "accepted_meaning": null},
+    {"target": "inventory.inventory_id", "accepted_meaning": null},
+    {"target": "inventory.film_id", "accepted_meaning": null},
+    {"target": "rental.rental_id", "accepted_meaning": null},
+    {"target": "rental.rental_date", "accepted_meaning": null},
+    {"target": "rental.return_date", "accepted_meaning": null}
+  ],
+  "detections": [
+    {"rule_id": "name_present", "row_id": 1, "target": "actor.first_name"},
+    {"rule_id": "title_unique", "row_id": 1, "target": "film.title"},
+    {"rule_id": "title_unique", "row_id": 2, "target": "film.title"},
+    {"rule_id": "rate_range", "row_id": 3, "target": "film.rental_rate"},
+    {"rule_id": "rating_allowed", "row_id": 4, "target": "film.rating"},
+    {"rule_id": "name_pattern", "row_id": 2, "target": "actor.last_name"},
+    {"rule_id": "return_after_rental", "row_id": 1, "target": "rental.return_date"},
+    {"rule_id": "film_exists", "row_id": 1, "target": "inventory.film_id"}
+  ],
+  "expected_clean_row_ids": {
+    "name_present": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "title_unique": [3, 4, 5, 6, 7, 8, 9, 10],
+    "rate_range": [1, 2, 4, 5, 6, 7, 8, 9, 10],
+    "rating_allowed": [1, 2, 3, 5, 6, 7, 8, 9, 10],
+    "name_pattern": [1, 3, 4, 5, 6, 7, 8, 9, 10],
+    "return_after_rental": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "film_exists": [2, 3, 4, 5, 6, 7, 8, 9, 10]
+  }
+}

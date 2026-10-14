@@ -1,0 +1,355 @@
+{
+  "workflow": "codex_proxy",
+  "split": "development",
+  "approach": "B",
+  "run_id": "b_contract_03",
+  "source_call_count": 13,
+  "source_outputs": [
+    {
+      "status": "completed",
+      "action": "schema",
+      "result": {
+        "name": "sakila_faults",
+        "tables": [
+          {
+            "name": "actor",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "actor_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "first_name",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "last_name",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "film",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "film_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "title",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "rental_rate",
+                "data_type": "decimal",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "rating",
+                "data_type": "varchar",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "inventory",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "inventory_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "film_id",
+                "data_type": "int",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          },
+          {
+            "name": "rental",
+            "row_count": 10,
+            "columns": [
+              {
+                "name": "rental_id",
+                "data_type": "int",
+                "nullable": false,
+                "key": "PRI"
+              },
+              {
+                "name": "rental_date",
+                "data_type": "datetime",
+                "nullable": true,
+                "key": ""
+              },
+              {
+                "name": "return_date",
+                "data_type": "datetime",
+                "nullable": true,
+                "key": ""
+              }
+            ]
+          }
+        ],
+        "relationships": []
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "actor",
+          "column": "actor_id"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "actor",
+          "column": "first_name"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 9,
+        "null_count": 1,
+        "distinct_count": 9
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "actor",
+          "column": "last_name"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "film",
+          "column": "film_id"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "film",
+          "column": "title"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 9
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "film",
+          "column": "rental_rate"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 4
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "film",
+          "column": "rating"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 6
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "inventory",
+          "column": "inventory_id"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "inventory",
+          "column": "film_id"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 3
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "rental",
+          "column": "rental_id"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "rental",
+          "column": "rental_date"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    },
+    {
+      "status": "completed",
+      "action": "profile",
+      "result": {
+        "metric_id": "profile",
+        "target": {
+          "table": "rental",
+          "column": "return_date"
+        },
+        "dimension": null,
+        "status": "completed",
+        "eligible": 0,
+        "passing": 0,
+        "violations": 0,
+        "row_count": 10,
+        "non_null_count": 10,
+        "null_count": 0,
+        "distinct_count": 10
+      }
+    }
+  ]
+}
